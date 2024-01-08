@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Admin</title>
+</head>
+
+<style>
+    body {
+        background-image: url(/static/imgs/admin.jpg);
+    }
+</style>
+
+<body>
+    <div class="bg-white">
+        <nav class="navbar w-75 mx-auto">
+            <img class="nav_img ms-5" src="/static/imgs/nld_color.png" alt="">
+            <h2>{{user.first_name}} {{user.last_name}}</h2>
+            <div>
+                <a class="me-5 btn btn-info" href="/admin">home</a>
+                <a class="me-5 btn btn-info" href="/user/logout">logout</a>
+            </div>
+        </nav>
+    </div>
+<!-- timecard table -->
+    <div class="w-50 bg-white mx-auto mt-5">
+        <nav class="navbar px-3">
+            <h3>Time Cards</h3>
+            <a class="btn btn-success" href="/timecard/{{user.id}}/new">Add Timecard</a>
+        </nav>
+
+        <table class="table">
+            <thead class="bg-dark-subtle">
+                <th>Date</th>
+                <th>Date Submitted</th>
+                <th>Hours</th>
+                <th>Job</th>
+                <th></th>
+            </thead>
+            {% for timecard in timecards %}
+            <tr>
+                <!-- <td>{{timecard.day.strftime("%x")}}</td> -->
+                <td><a href="/admin/timecard/{{timecard.id}}/edit">{{timecard.day.strftime("%x")}}</a></td>
+                <td>{{timecard.created_at.strftime("%x")}}</td>
+                <td>{{timecard.hours}}</td>
+                <td>{{timecard.job.job_number}} {{timecard.job.description}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

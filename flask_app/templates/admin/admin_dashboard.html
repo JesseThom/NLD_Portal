@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Admin</title>
+</head>
+
+<style>
+    body {
+        height: 100vh;
+        background-image: url(/static/imgs/admin.jpg);
+    }
+</style>
+
+<body>
+    <div class="bg-white">
+        <nav class="navbar w-75 mx-auto">
+            <img class="nav_img ms-5" src="/static/imgs/nld_color.png" alt="">
+            <h2>NLD Admin</h2>
+            <a class="me-5 btn btn-info" href="/user/logout">logout</a>
+        </nav>
+    </div>
+
+    <!-- employee list -->
+    <div class="w-50 bg-white mx-auto mt-5">
+        <nav class="navbar px-3">
+            <h3>Employees</h3>
+            <a class="btn btn-success" href="/admin/user/new">Add Employee</a>
+        </nav>
+
+        <table class="table">
+            <thead class="bg-dark-subtle">
+                <th>Employee ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <!-- <th class="text-center">Actions</th> -->
+            </thead>
+            {% for user in users%}
+            <tr>
+                <!-- <td>{{user.employee_id}}</td> -->
+                <td><a href="/admin/employee/{{user.id}}">{{user.employee_id}}</a></td>
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <!-- <td class="text-center"> -->
+                    <!-- <a href="/admin/employee/{{user.id}}">view</a> -->
+                    <!-- <a class="mx-5" href="/admin/employee/{{user.employee_id}}/edit">edit</a> -->
+                    <!-- <a href="/user/{{user.id}}/delete">delete</a> -->
+                <!-- </td> -->
+            </tr>
+            {% endfor%}
+        </table>
+    </div>
+
+    <!-- job list -->
+    <div class="w-50 bg-white mx-auto mt-5">
+        <nav class="navbar px-3">
+            <h3>Jobs</h3>
+            <a class="btn btn-success" href="/admin/job/new">Add Job</a>
+        </nav>
+
+        <table class="table">
+            <thead class="bg-dark-subtle">
+                <th>Job Number</th>
+                <th>Description</th>
+                <!-- <th class="text-center">Actions</th> -->
+            </thead>
+            {% for job in jobs%}
+            <tr>
+                <!-- <td>{{job.job_number}}</td> -->
+                <td><a href="/admin/job/{{job.id}}">{{job.job_number}}</a></td>
+                <td>{{job.description}}</td>
+                <!-- <td class="text-center"> -->
+                    <!-- <a href="/admin/job/{{job.id}}">view</a> -->
+                    <!-- <a class="mx-5" href="/admin/job/{{job.id}}/edit">edit</a> -->
+                    <!-- <a href="/job/{{job.id}}/delete">delete</a> -->
+                <!-- </td> -->
+            </tr>
+            {% endfor%}
+        </table>
+    </div>
+</body>
+
+</html>

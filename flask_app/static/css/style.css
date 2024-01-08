@@ -1,0 +1,98 @@
+
+
+body {
+    height: 100vh;
+    /* background-image: url(/static/imgs/admin.jpg); */
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+}
+
+.login {
+    background-color: #eec49b;
+    opacity: .8;
+}
+
+
+/* phone  */
+@media only screen and (max-width: 480px) {
+    .login {
+        width: 90vw;
+    }
+    .navbar > h1 {
+        font-size: 1rem;
+    }
+    .navbar > h2 {
+        font-size: .75rem;
+    }
+    .content {
+        width: 90vw;
+    }
+    .nav_img {
+        height: 1.5rem;
+    }
+    th {
+        font-size: .5rem;
+    }
+    td {
+        font-size: .5rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    .btn {
+        font-size: .5rem;
+    }
+    .sm-none{
+        display: none;
+    }
+}
+
+/* tablet  */
+@media only screen and (min-width: 481px) {
+    .login {
+        width: 50vw;
+    }
+    .navbar > h1 {
+        font-size: 1.5rem;
+    }
+    .navbar > h2 {
+        font-size: 1.25rem;
+    }
+    .content {
+        width: 75vw;
+    }
+    .nav_img {
+        height: 3rem;
+    }
+    td {
+        font-size: .75rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    .btn {
+        font-size: 1rem;
+    }
+}
+
+/* pc  */
+@media only screen and (min-width: 1200px) {
+    .login {
+        width: 25vw;
+    }
+    .navbar > h1 {
+        font-size: 2rem;
+    }
+    .navbar > h2 {
+        font-size: 2rem;
+    }
+    .content {
+        width: 50vw;
+    }
+    td {
+        font-size: 1rem;
+    }
+
+}
